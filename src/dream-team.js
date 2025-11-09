@@ -14,13 +14,15 @@ const { NotImplementedError } = require('../lib');
  *
  */
 function createDreamTeam(members) {
+  if (!Array.isArray(members)) return false;
+
   let result = '';
   let finalResult = '';
   for (const element of members) {
     if (typeof (element) !== 'string') {
-      members.pop(element)
+      console.log('Not a name');
     } else {
-      result += element[0]
+      result += element.trim()[0];
     }
   }
   if (result.length === 0) {
